@@ -1,2 +1,6 @@
-<h1>Admin::Provider#new</h1>
-<p>Find me in app/views/admin/provider/new.html.erb</p>
+<%= form_tag :action => 'create' do %>
+    <%= render :partial => 'form' %>
+    <%= submit_tag 'Añadir proveedor' %>
+<% end %>
+
+<%= link_to 'Back', :action => 'index' %>

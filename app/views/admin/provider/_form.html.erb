@@ -1,0 +1,20 @@
+<% if @provider.errors.any? %>
+    <div id="errorExplanation">
+      <h2><%= pluralize(@provider.errors.count, "error") %> ha sido imposible añadir a este proveedor:</h2>
+      <ul>
+        <% @provider.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<div class="field">
+  <p><label for="provider_name">Nombre:</label><br/>
+    <%= text_field 'provider', 'name' %></p>
+</div>
+
+<div class="field">
+  <p><label for="provider_telephone">Teéfono:</label><br/>
+    <%= text_field 'provider', 'telephone' %></p>
+</div>
