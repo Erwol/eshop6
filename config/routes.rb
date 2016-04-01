@@ -38,8 +38,8 @@ Rails.application.routes.draw do
   get 'about' => 'about#index'
   get 'about/index'
 
-
-
+  # Al llamar a una vista de una misma entidad usamos '#'
+  get 'admin/provider' => 'admin/provider#index'
   get 'admin/provider/new'
   post 'admin/provider/create'
   get 'admin/provider/edit'

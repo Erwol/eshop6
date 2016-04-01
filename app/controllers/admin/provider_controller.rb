@@ -36,9 +36,9 @@ class Admin::ProviderController < ApplicationController
   end
 
   def destroy
-    @provider = Author.find(params[:id])
+    @provider = Provider.find(params[:id])
     @provider.destroy
-    flash[:notice] = "El proveedor #{@author.name} fue eliminado correctamente."
+    flash[:notice] = "El proveedor #{@provider.name} fue eliminado correctamente."
     redirect_to :action => 'index'
   end
 

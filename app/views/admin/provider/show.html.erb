@@ -1,2 +1,9 @@
-<h1>Admin::Provider#show</h1>
-<p>Find me in app/views/admin/provider/show.html.erb</p>
+<dl>
+  <dt>Nombre</dt>
+  <dd><%= @provider.name %></dd>
+  <dt>Teléfono</dt>
+  <dd><%= @provider.telephone %></dd>
+</dl>
+
+<%= link_to 'Editar', :action => 'edit', :id => @provider %> |
+<%= link_to 'Volver', :action => 'index' %>
