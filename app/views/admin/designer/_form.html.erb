@@ -1,0 +1,25 @@
+<% if @designer.errors.any? %>
+    <div id="errorExplanation">
+      <h2><%= pluralize(@designer.errors.count, "error") %> ha sido imposible añadir a este diseñador:</h2>
+      <ul>
+        <% @designer.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<div class="field">
+  <p><label for="designer_name">Nombre:</label><br/>
+    <%= text_field 'designer', 'name' %></p>
+</div>
+
+<div class="field">
+  <p><label for="designer_telephone">Teléfono:</label><br/>
+    <%= text_field 'designer', 'telephone' %></p>
+</div>
+
+<div class="field">
+  <p><label for="designer_enterprise">Empresa:</label><br/>
+    <%= text_field 'designer', 'enterprise' %></p>
+</div>

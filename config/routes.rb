@@ -1,6 +1,34 @@
 Rails.application.routes.draw do
 
   namespace :admin do
+  get 'designer/new'
+  end
+
+  namespace :admin do
+  get 'designer/create'
+  end
+
+  namespace :admin do
+  get 'designer/edit'
+  end
+
+  namespace :admin do
+  get 'designer/update'
+  end
+
+  namespace :admin do
+  get 'designer/destroy'
+  end
+
+  namespace :admin do
+  get 'designer/show'
+  end
+
+  namespace :admin do
+  get 'designer/index'
+  end
+
+  namespace :admin do
   get 'provider/new'
   end
 
@@ -39,15 +67,15 @@ Rails.application.routes.draw do
   get 'about/index'
 
   # Al llamar a una vista de una misma entidad usamos '#'
-  get 'admin/provider' => 'admin/provider#index'
-  get 'admin/provider/new'
-  post 'admin/provider/create'
-  get 'admin/provider/edit'
-  post 'admin/provider/update'
-  post 'admin/provider/destroy'
-  get 'admin/provider/show'
-  get 'admin/provider/show/:id' => 'admin/provider#show'
-  get 'admin/provider/index'
+  get 'admin/designer' => 'admin/designer#index'
+  get 'admin/designer/new'
+  post 'admin/designer/create'
+  get 'admin/designer/edit'
+  post 'admin/designer/update'
+  post 'admin/designer/destroy'
+  get 'admin/designer/show'
+  get 'admin/designer/show/:id' => 'admin/designer#show'
+  get 'admin/designer/index'
 
 
 end

@@ -14,7 +14,7 @@ class Admin::ProviderController < ApplicationController
       flash[:notice] = "El proveedor #{@provider.name} fue añadido correctamente."
       redirect_to :action => 'index'
     else
-      @page_title = 'Crear nuevo autor'
+      @page_title = 'Crear nuevo proveedor'
       render :action => 'new'
     end
   end

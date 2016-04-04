@@ -1,0 +1,11 @@
+<dl>
+  <dt>Nombre</dt>
+  <dd><%= @designer.name %></dd>
+  <dt>Teléfono</dt>
+  <dd><%= @designer.telephone %></dd>
+  <dt>Empresa</dt>
+  <dd><%= @designer.enterprise %></dd>
+</dl>
+
+<%= link_to 'Editar', :action => 'edit', :id => @designer %> |
+<%= link_to 'Volver', :action => 'index' %>
