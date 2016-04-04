@@ -66,6 +66,18 @@ Rails.application.routes.draw do
   get 'about' => 'about#index'
   get 'about/index'
 
+
+
+  get 'admin/provider' => 'admin/provider#index'
+  get 'admin/provider/new'
+  post 'admin/provider/create'
+  get 'admin/provider/edit'
+  post 'admin/provider/update'
+  post 'admin/provider/destroy'
+  get 'admin/provider/show'
+  get 'admin/provider/show/:id' => 'admin/provider#show'
+  get 'admin/provider/index'
+
   # Al llamar a una vista de una misma entidad usamos '#'
   get 'admin/designer' => 'admin/designer#index'
   get 'admin/designer/new'
