@@ -35,6 +35,6 @@ gem 'mysql2', '0.3.16'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'will_paginate', '3.0.5'
 # Use debugger
 # gem 'debugger', group: [:development, :test]

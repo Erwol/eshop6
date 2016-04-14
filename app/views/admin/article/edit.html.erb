@@ -1,0 +1,7 @@
+<%= form_tag "/admin/article/update?id=#{@article.id}", :multipart => true do %>
+    <%= render :partial => 'form' %>
+    <%= submit_tag 'Update article' %>
+<% end %>
+
+<%= link_to 'Show', :action => 'show', :id => @article %> |
+<%= link_to 'Back', :action => 'index' %>

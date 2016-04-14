@@ -1,0 +1,23 @@
+<table>
+  <tr>
+    <th><a href="?sort_by=provider_id">Provider</a></th>
+    <th><a href="?sort_by=name">Title</a></th>
+    <th>Tags</th>
+    <th colspan="3"></th>
+  </tr>
+
+  <% @articles.each do |article| %>
+      <tr>
+        <td><%= h article.provider.name %></td>
+        <td><%= h article.name %></td>
+        <td><%= link_to 'Show', :action => 'show', :id => article %></td>
+        <td><%= link_to 'Edit', :action => 'edit', :id => article  %></td>
+        <td><%= button_to 'Delete', { :action => 'destroy', :id => article },
+                          data: { confirm: "Are you sure you want to delete article #{article.title}?" } %></td>
+      </tr>
+  <% end %>
+</table>
+<br/>
+<%= will_paginate @articles, :page_links => false, :link_separator => ' | ',
+                  :previous_label => 'Previous page', :next_label => 'Next page' %>
+<p><%= link_to 'Add a new article', :action => 'new' %></p>

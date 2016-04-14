@@ -11,7 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160404104143) do
+ActiveRecord::Schema.define(version: 20160411103336) do
+
+  create_table "articles", force: true do |t|
+    t.string   "name",        null: false
+    t.integer  "provider_id", null: false
+    t.datetime "provided_at"
+    t.text     "description"
+    t.float    "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "articles", ["provider_id"], name: "fk_articles_publishers", using: :btree
+
+  create_table "articles_designers", force: true do |t|
+    t.integer  "designer_id", null: false
+    t.integer  "article_id",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "articles_designers", ["article_id"], name: "fk_articles_designers_articles", using: :btree
+  add_index "articles_designers", ["designer_id"], name: "fk_articles_designers_designers", using: :btree
 
   create_table "designers", force: true do |t|
     t.string   "name"

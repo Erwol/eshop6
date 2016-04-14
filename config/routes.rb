@@ -1,70 +1,19 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-  get 'designer/new'
-  end
 
-  namespace :admin do
-  get 'designer/create'
-  end
-
-  namespace :admin do
-  get 'designer/edit'
-  end
-
-  namespace :admin do
-  get 'designer/update'
-  end
-
-  namespace :admin do
-  get 'designer/destroy'
-  end
-
-  namespace :admin do
-  get 'designer/show'
-  end
-
-  namespace :admin do
-  get 'designer/index'
-  end
-
-  namespace :admin do
-  get 'provider/new'
-  end
-
-  namespace :admin do
-  get 'provider/create'
-  end
-
-  namespace :admin do
-  get 'provider/edit'
-  end
-
-  namespace :admin do
-  get 'provider/update'
-  end
-
-  namespace :admin do
-  get 'provider/destroy'
-  end
-
-  namespace :admin do
-  get 'provider/show'
-  end
-
-  namespace :admin do
-  get 'provider/index'
-  end
-
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-
-  # Petición, sirve para cuando no se pone nada
   root :to => 'about#index'
   get 'about' => 'about#index'
   get 'about/index'
+
+  get 'admin/article' => 'admin/article#index'
+  get 'admin/article/new'
+  post 'admin/article/create'
+  get 'admin/article/edit'
+  post 'admin/article/update'
+  post 'admin/article/destroy'
+  get 'admin/article/show'
+  get 'admin/article/show/:id' => 'admin/article#show'
+  get 'admin/article/index'
 
 
 
