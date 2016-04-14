@@ -1,15 +1,15 @@
 <dl>
-  <dt>Name</dt>
+  <dt>Nombre</dt>
   <dd><%= @article.name %></dd>
-  <dt>Provider</dt>
+  <dt>Proveedor</dt>
   <dd><%= @article.provider.name %></dd>
-  <dt>Provided at</dt>
+  <dt>Provisto el</dt>
   <dd><%= @article.provided_at.strftime("%d/%m/%Y at %I:%M%p") %></dd>
-  <dt>Designers</dt>
+  <dt>Diseñadores</dt>
   <dd><%= @article.designer_names %></dd>
-  <dt>Description</dt>
+  <dt>Descripción</dt>
   <%= RedCloth.new(@article.description).to_html.html_safe if @article.description %>
-  <dt>Price</dt>
+  <dt>Precio</dt>
   <dd><%= @article.price %></dd>
 </dl>
 

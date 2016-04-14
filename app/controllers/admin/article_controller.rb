@@ -8,11 +8,11 @@ class Admin::ArticleController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      flash[:notice] = "Article #{@article.title} was succesfully created."
+      flash[:notice] = "El artículo #{@article.title} fue creado correctamente."
       redirect_to :action => 'index'
     else
       load_data
-      @page_title = 'Create new article'
+      @page_title = 'Crear nuevo artículo'
       render :action => 'new'
     end
   end
@@ -20,17 +20,17 @@ class Admin::ArticleController < ApplicationController
   def edit
     load_data
     @article = Article.find(params[:id])
-    @page_title = 'Edit article'
+    @page_title = 'Editar artículo'
   end
 
   def update
     @article = Article.find(params[:id])
     if @article.update_attributes(article_params)
-      flash[:notice] = "Article #{@article.title} was succesfully updated."
+      flash[:notice] = "El artículo #{@article.title} fue actualizado correctamente."
       redirect_to :action => 'show', :id => @article
     else
       load_data
-      @page_title = 'Edit article'
+      @page_title = 'Editar artículo'
       render :action => 'edit'
     end
   end
@@ -38,7 +38,7 @@ class Admin::ArticleController < ApplicationController
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
-    flash[:notice] = "Succesfully deleted article #{@article.title}."
+    flash[:notice] = "El artículo #{@article.title} fue eliminado correctamente."
     redirect_to :action => 'index'
   end
 
@@ -50,7 +50,7 @@ class Admin::ArticleController < ApplicationController
   def index
     sort_by = params[:sort_by]
     @articles = Article.order(sort_by).paginate(:page => params[:page], :per_page => 5)
-    @page_title = 'Listing articles'
+    @page_title = 'Listado de artículos'
   end
 
   private

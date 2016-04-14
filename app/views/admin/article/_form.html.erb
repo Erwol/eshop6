@@ -1,6 +1,6 @@
 <% if @article.errors.any? %>
     <div id="errorExplanation">
-      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+      <h2><%= pluralize(@article.errors.count, "error") %> este artículo no se pudo guardar:</h2>
       <ul>
         <% @article.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
@@ -10,32 +10,32 @@
 <% end %>
 
 <div class="field">
-  <p><label for="article_name">Title</label><br/>
+  <p><label for="article_name">Nombre</label><br/>
     <%= text_field 'article', 'name' %></p>
 </div>
 
 <div class="field">
-  <p><label for="article_provider">Provider</label><br/>
+  <p><label for="article_provider">Proveedor</label><br/>
     <%= collection_select :article, :provider_id, @providers, :id, :name %></p>
 </div>
 
 <div class="field">
-  <p><label for="article[designer_ids][]">Designers</label><br/>
+  <p><label for="article[designer_ids][]">Diseñadores</label><br/>
     <%= select_tag 'article[designer_ids][]', options_from_collection_for_select(@designers, :id, :name,
                                                                                  @article.designers.collect{|designer| designer.id}), { :multiple => true, :size => 5 } %></p>
 </div>
 
 <div class="field"><p>
-  <label for="article_published_at">Published at</label><br/>
+  <label for="article_published_at">Provisto el</label><br/>
   <%= datetime_select 'article', 'provided_at' %></p>
 </div>
 
 <div class="field">
-  <p><label for="article_description">Description</label><br/>
+  <p><label for="article_description">Descripción</label><br/>
     <%= text_area 'article', 'description' %></p>
 </div>
 
 <div class="field">
-  <p><label for="article_price">Price</label><br/>
+  <p><label for="article_price">Precio</label><br/>
     <%= text_field 'article', 'price' %></p>
 </div>
