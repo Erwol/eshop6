@@ -2,13 +2,13 @@ class Admin::ArticleController < ApplicationController
   def new
     load_data
     @article = Article.new
-    @page_title = 'Create new article'
+    @page_title = 'Añadir un nuevo artículo'
   end
 
   def create
     @article = Article.new(article_params)
     if @article.save
-      flash[:notice] = "El artículo #{@article.title} fue creado correctamente."
+      flash[:notice] = "El artículo #{@article.name} fue creado correctamente."
       redirect_to :action => 'index'
     else
       load_data
@@ -26,7 +26,7 @@ class Admin::ArticleController < ApplicationController
   def update
     @article = Article.find(params[:id])
     if @article.update_attributes(article_params)
-      flash[:notice] = "El artículo #{@article.title} fue actualizado correctamente."
+      flash[:notice] = "El artículo #{@article.name} fue actualizado correctamente."
       redirect_to :action => 'show', :id => @article
     else
       load_data
@@ -38,13 +38,13 @@ class Admin::ArticleController < ApplicationController
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
-    flash[:notice] = "El artículo #{@article.title} fue eliminado correctamente."
+    flash[:notice] = "El artículo #{@article.name} fue eliminado correctamente."
     redirect_to :action => 'index'
   end
 
   def show
     @article = Article.find(params[:id])
-    @page_title = @article.title
+    @page_title = @article.name
   end
 
   def index
@@ -61,7 +61,7 @@ class Admin::ArticleController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :provider_id, :provided_at, { :designer_ids => [] },
+    params.require(:article).permit(:name, :provider_id, :provided_at, { :designer_ids => [] },
                                     :description, :price)
   end
 end

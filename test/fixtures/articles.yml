@@ -1,11 +1,60 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+pro_rails_ecommerce_1:
+  id: 1
+  name: Pro Rails E-Commerce
+  provider_id: 1
+  provided_at: <%= Time.now.strftime("%Y-%m-%d") %>
+  price: 45.0
+pro_rails_ecommerce_2:
+  id: 2
+  name: Pro Rails E-Commerce 2nd Edition
+  provider_id: 1
+  provided_at: <%= Time.now.strftime("%Y-%m-%d") %>
+  price: 65
+pro_rails_ecommerce_3:
+  id: 3
+  name: Pro Rails E-Commerce 3rd Edition
+  provider_id: 1
+  provided_at: <%= Time.now.strftime("%Y-%m-%d") %>
+  price: 85
+pro_rails_ecommerce_4:
+  id: 4
+  name: Pro Rails E-Commerce 4th Edition
+  provider_id: 1
+  provided_at: <%= Time.now.strftime("%Y-%m-%d") %>
+  price: 105
+pro_rails_ecommerce_5:
+  id: 5
+  name: Pro Rails E-Commerce 5th Edition
+  provider_id: 1
+  provided_at: <%= Time.now.strftime("%Y-%m-%d") %>
+  price: 125
+pro_rails_ecommerce_6:
+  id: 6
+  name: Pro Rails E-Commerce 6th Edition
+  provider_id: 1
+  provided_at: <%= Time.now.strftime("%Y-%m-%d") %>
+  price: 145
+pro_rails_ecommerce_7:
+  id: 7
+  name: Pro Rails E-Commerce 7th Edition
+  provider_id: 2
+  provided_at: <%= Time.now.strftime("%Y-%m-%d") %>
+  price: 165
+ruby_for_dummies_8:
+  id: 8
+  name: Ruby for Dummies
+  provider_id: 1
+  provided_at: <%= Time.now.strftime("%Y-%m-%d") %>
+  price: 185
+pride_and_prejudice_9:
+  id: 9
+  name: Pride and Prejudice
+  provider_id: 2
+  provided_at: <%= Time.now.strftime("%Y-%m-%d") %>
+  price: 40
+the_idiot_10:
+  id: 10
+  name: The Idiot
+  provider_id: 2
+  provided_at: <%= Time.now.strftime("%Y-%m-%d") %>
+  price: 40

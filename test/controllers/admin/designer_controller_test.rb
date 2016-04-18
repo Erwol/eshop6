@@ -4,19 +4,19 @@ class Admin::DesignerControllerTest < ActionController::TestCase
   fixtures :designers
 
   test "new" do
-    get :new
-    assert_template 'admin/designer/new'
-    assert_tag 'h1', :content => 'Añadir un nuevo diseñador'
-    assert_tag 'form', :attributes => { :action => '/admin/designer/create' }
+    get :new  
+    assert_template 'admin/designer/new'  
+    assert_tag 'h1', :content => 'Añadir un nuevo diseñador'  
+    assert_tag 'form', :attributes => { :action => '/admin/designer/create' }   
   end
 
   test "create" do
-    get :new
+    get :new    
     assert_template 'admin/designer/new'
     assert_difference(Designer, :count) do
       post :create, :designer => {:name => 'Rodrigo', :telephone => 956245152, :enterprise => 'Pryca'}
       assert_response :redirect, "Errores en el modelo: #{assigns(:designer).errors.full_messages.to_sentence}"
-      assert_redirected_to :action => 'index'
+      assert_redirected_to :action => 'index'      
     end
     assert_equal 'El diseñador Rodrigo fue añadido correctamente.', flash[:notice]
   end
@@ -44,7 +44,7 @@ class Admin::DesignerControllerTest < ActionController::TestCase
       get :index
       assert_response :success
       assert_tag :tag => 'div', :attributes => {:id => 'notice'},
-                 :content => 'El diseñador Juan fue eliminado correctamente.'
+        :content => 'El diseñador Juan fue eliminado correctamente.'
     end
   end
 

@@ -38,3 +38,5 @@ gem 'mysql2', '0.3.16'
 gem 'will_paginate', '3.0.5'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'RedCloth', '4.2.9'

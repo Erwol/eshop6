@@ -13,7 +13,7 @@
         <td><%= link_to 'Show', :action => 'show', :id => article %></td>
         <td><%= link_to 'Edit', :action => 'edit', :id => article  %></td>
         <td><%= button_to 'Delete', { :action => 'destroy', :id => article },
-                          data: { confirm: "¿De veras desea eliminar el artículo #{article.title}?" } %></td>
+                          data: { confirm: "¿De veras desea eliminar el artículo #{article.name}?" } %></td>
       </tr>
   <% end %>
 </table>
