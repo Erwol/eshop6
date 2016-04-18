@@ -3,14 +3,21 @@
   <dd><%= @article.name %></dd>
   <dt>Proveedor</dt>
   <dd><%= @article.provider.name %></dd>
-  <dt>Provisto el</dt>
-  <dd><%= @article.provided_at.strftime("%d/%m/%Y at %I:%M%p") %></dd>
+  <dt>Fecha de suministro</dt>
+  <dd><%= @article.provided_at.strftime("%d/%m/%Y") %></dd>
   <dt>Diseñadores</dt>
   <dd><%= @article.designer_names %></dd>
-  <dt>Descripción</dt>
+  <dt>Descripción (Blurb)</dt>
   <%= RedCloth.new(@article.description).to_html.html_safe if @article.description %>
   <dt>Precio</dt>
   <dd><%= @article.price %></dd>
+  <dt>Imagen de portada</dt>
+  <% if @article.cover_image.exists? then %>
+      <dd><%= image_tag @article.cover_image.url %></dd>
+  <% else %>
+      <dd><%= image_tag '/missing.png' %></dd>
+      <p> No hay una imagen de portada. Por favor, suba una. </p>
+  <% end %>
 </dl>
 
 <%= link_to 'Editar', :action => 'edit', :id => @article %> |

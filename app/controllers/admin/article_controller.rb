@@ -2,7 +2,7 @@ class Admin::ArticleController < ApplicationController
   def new
     load_data
     @article = Article.new
-    @page_title = 'Añadir un nuevo artículo'
+    @page_title = 'Create new article'
   end
 
   def create
@@ -62,6 +62,6 @@ class Admin::ArticleController < ApplicationController
 
   def article_params
     params.require(:article).permit(:name, :provider_id, :provided_at, { :designer_ids => [] },
-                                    :description, :price)
+                                    :description, :price, :cover_image)
   end
 end

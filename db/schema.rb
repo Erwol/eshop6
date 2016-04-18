@@ -11,16 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160411103336) do
+ActiveRecord::Schema.define(version: 20160418100849) do
 
   create_table "articles", force: true do |t|
-    t.string   "name",        null: false
-    t.integer  "provider_id", null: false
+    t.string   "name",                     null: false
+    t.integer  "provider_id",              null: false
     t.datetime "provided_at"
     t.text     "description"
     t.float    "price"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cover_image_file_name"
+    t.string   "cover_image_content_type"
+    t.integer  "cover_image_file_size"
+    t.datetime "cover_image_updated_at"
   end
 
   add_index "articles", ["provider_id"], name: "fk_articles_publishers", using: :btree

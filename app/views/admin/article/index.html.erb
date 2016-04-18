@@ -2,7 +2,6 @@
   <tr>
     <th><a href="?sort_by=provider_id">Proveedor</a></th>
     <th><a href="?sort_by=name">Nombre</a></th>
-    <th>Etiquetas</th>
     <th colspan="3"></th>
   </tr>
 
@@ -10,9 +9,9 @@
       <tr>
         <td><%= h article.provider.name %></td>
         <td><%= h article.name %></td>
-        <td><%= link_to 'Show', :action => 'show', :id => article %></td>
-        <td><%= link_to 'Edit', :action => 'edit', :id => article  %></td>
-        <td><%= button_to 'Delete', { :action => 'destroy', :id => article },
+        <td><%= link_to 'Mostrar', :action => 'show', :id => article %></td>
+        <td><%= link_to 'Editar', :action => 'edit', :id => article  %></td>
+        <td><%= button_to 'Borrar', { :action => 'destroy', :id => article },
                           data: { confirm: "¿De veras desea eliminar el artículo #{article.name}?" } %></td>
       </tr>
   <% end %>
