@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-
-  root :to => 'about#index'
+  root :to => 'catalog#index'
+  # root :to => 'about#index'
   get 'about' => 'about#index'
   get 'about/index'
 
@@ -38,5 +38,9 @@ Rails.application.routes.draw do
   get 'admin/designer/show/:id' => 'admin/designer#show'
   get 'admin/designer/index'
 
-
+  get 'catalog' => 'catalog#index'
+  get 'catalog/show'
+  get 'catalog/show/:id' => 'catalog#show'
+  get 'catalog/index'
+  get 'catalog/latest'
 end

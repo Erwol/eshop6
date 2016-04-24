@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ArticleTest < ActionDispatch::IntegrationTest
+class ArticleAdministrationTest < ActionDispatch::IntegrationTest
 
   test "article_aministration" do
     provider = Provider.create(:name => 'Articles', :telephone => 956824514)

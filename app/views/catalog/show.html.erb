@@ -1,0 +1,16 @@
+<h2>por <%=@article.designer_names %></h2>
+<% if @article.cover_image.exists? then %>
+    <dd><%= image_tag @article.cover_image.url %></dd>
+<% else %>
+    <p>Este artículo no tiene imagen asignada.</p>
+<% end %>
+<dl>
+  <dt>Precio</dt>
+  <dd><%= sprintf("%0.2f", @article.price) %></dd>
+  <dt>Proveedor</dt>
+  <dd><%= @article.provider.name %></dd>
+  <dt>Descripción del artículo</dt>
+  <%= RedCloth.new(@article.description).to_html.html_safe if @article.description %>
+</dl>
+
+<p><%= link_to 'Catálogo', :action => 'index' %> </p>
