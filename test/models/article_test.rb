@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ArticleTest2 < ActiveSupport::TestCase
+class ArticleTest < ActiveSupport::TestCase
   fixtures :designers, :providers, :articles, :articles_designers
 
   test "failing_create" do

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418100849) do
+ActiveRecord::Schema.define(version: 20160504104938) do
 
   create_table "articles", force: true do |t|
     t.string   "name",                     null: false
@@ -39,10 +39,51 @@ ActiveRecord::Schema.define(version: 20160418100849) do
   add_index "articles_designers", ["article_id"], name: "fk_articles_designers_articles", using: :btree
   add_index "articles_designers", ["designer_id"], name: "fk_articles_designers_designers", using: :btree
 
+  create_table "cart_items", force: true do |t|
+    t.integer  "article_id"
+    t.integer  "cart_id"
+    t.float    "price"
+    t.integer  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "carts", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "designers", force: true do |t|
     t.string   "name"
     t.integer  "telephone"
     t.string   "enterprise"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "order_items", force: true do |t|
+    t.integer  "article_id"
+    t.integer  "order_id"
+    t.float    "price"
+    t.integer  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "order_items", ["order_id"], name: "fk_order_items_orders", using: :btree
+
+  create_table "orders", force: true do |t|
+    t.string   "email"
+    t.string   "phone_number"
+    t.string   "ship_to_first_name"
+    t.string   "ship_to_last_name"
+    t.string   "ship_to_address"
+    t.string   "ship_to_city"
+    t.string   "ship_to_postal_code"
+    t.string   "ship_to_country_code"
+    t.string   "customer_ip"
+    t.string   "status"
+    t.string   "error_message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
