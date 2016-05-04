@@ -5,8 +5,8 @@ class CheckoutController < ApplicationController
     @order = Order.new
     @page_title = 'Checkout'
     if @cart.articles.empty?
-      flash[:notice] = 'Your shopping cart is empty! ' +
-          'Please add at least one article to it before proceeding to check out.'
+      flash[:notice] = '¡ Su carrito de la compra está vacío! ' +
+          'Por favor, añada al menos un artículo al carrito para poder comprarlo.'
       redirect_to :controller => 'catalog'
     end
   end
@@ -22,12 +22,12 @@ class CheckoutController < ApplicationController
 
     if @order.save
       if @order.process
-        flash[:notice] = 'Your order has been submitted and will be processed inmediately.'
+        flash[:notice] = 'Su pedido ha sido recibido y lo procesaremos de forma inmediata.'
         session[:order_id] = @order.id
         @cart.cart_items.destroy_all # empty shopping cart
         redirect_to :action => 'thank_you'
       else
-        flash[:notice] = "Error when submitting order '#{@order.error_message}'."
+        flash[:notice] = "Error al realizar el pedido '#{@order.error_message}'."
         render :action => 'index'
       end
     else
@@ -36,7 +36,7 @@ class CheckoutController < ApplicationController
   end
 
   def thank_you
-    @page_title = 'Thank you.'
+    @page_title = '¡Gracias!'
   end
 
   private

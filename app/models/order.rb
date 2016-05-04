@@ -6,8 +6,8 @@ class Order < ActiveRecord::Base
   has_many :articles, :through => :order_items
 
   validates_presence_of :order_items,
-                        :message => 'Your shopping cart is empty! ' +
-                            'Please add at least one article to it before submitting the order.'
+                        :message => '¡Su carrito de la compra está vacío! ' +
+                            'Por favor, añada al menos un artículo.'
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
   validates_length_of :phone_number, :in => 7..20
 
@@ -89,8 +89,8 @@ class Order < ActiveRecord::Base
 
     if creditcard.valid? # validating the card automatically detects the card type
       gateway = ActiveMerchant::Billing::designerizeNetGateway.new( # use the test account
-          :login     => 'AAAAAAAAAA',
-          :password  => 'BBBBBBBBBB'
+          :login     => 'juanjo134kadi',
+          :password  => 'DAnone20'
       # the statement ":test = 'true'" tells the gateway to not to process transactions
       )
 
