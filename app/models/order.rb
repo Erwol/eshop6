@@ -50,9 +50,9 @@ class Order < ActiveRecord::Base
 
   def active_merchant_payment
     ActiveMerchant::Billing::Base.mode = :test
-    ActiveMerchant::Billing::designerizeNetGateway.default_currency = 'USD'
-    ActiveMerchant::Billing::designerizeNetGateway.wiredump_device = STDERR
-    ActiveMerchant::Billing::designerizeNetGateway.wiredump_device.sync = true
+    ActiveMerchant::Billing::AuthorizeNetGateway.default_currency = 'USD'
+    ActiveMerchant::Billing::AuthorizeNetGateway.wiredump_device = STDERR
+    ActiveMerchant::Billing::AuthorizeNetGateway.wiredump_device.sync = true
     self.status = 'failed' # order status by default
 
     # the card verification value is also known as CVV2, CVC2, or CID
@@ -88,17 +88,13 @@ class Order < ActiveRecord::Base
     }
 
     if creditcard.valid? # validating the card automatically detects the card type
-      gateway = ActiveMerchant::Billing::designerizeNetGateway.new( # use the test account
-          :login     => 'juanjo134kadi',
-          :password  => 'DAnone20'
+      gateway = ActiveMerchant::Billing::AuthorizeNetGateway.new( # use the test account
+          :login     => '9gJ75BNqb',
+          :password  => '5EG234b233dwSzA9'
       # the statement ":test = 'true'" tells the gateway to not to process transactions
       )
 
-      eucentralbank = EuCentralBank.new
-      eucentralbank.update_rates
-      # Active Merchant accepts all amounts as integer values in cents
-      amount = eucentralbank.exchange((self.total * 100).to_i, 'EUR', 'USD').cents
-      response = gateway.purchase(amount, creditcard, details)
+      response = gateway.purchase(self.total, creditcard, details)
 
       if response.success?
         self.status = 'processed'
