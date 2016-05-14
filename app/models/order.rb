@@ -19,7 +19,7 @@ class Order < ActiveRecord::Base
   validates_length_of :ship_to_country_code, :in => 2..255
 
   validates_length_of :customer_ip, :in => 7..15
-  validates_inclusion_of :status, :in => %w(open processed closed failed)
+  validates_inclusion_of :status, :in => %w(abierto procesado cerrado fallido)
 
   validates_inclusion_of :card_type, :in => ['Visa', 'MasterCard', 'American Express', 'Discover'], :on => :create
   validates_length_of :card_number, :in => 13..19, :on => :create
@@ -37,15 +37,15 @@ class Order < ActiveRecord::Base
 
   def process
     begin
-      raise 'A closed order cannot be processed again' if self.closed?
+      raise 'No se puede procesar un pedido que ya fue cerrado.' if self.cerrado?
       active_merchant_payment
     rescue => e
-      logger.error("Order #{id} failed due to raised exception: #{e}.")
-      self.error_message = "Exception raised: #{e}"
-      self.status = 'failed'
+      logger.error("El pedido #{id} falló debido a una excepción: #{e}.")
+      self.error_message = "Excepción elevada: #{e}"
+      self.status = 'fallido'
     end
     save!
-    self.processed?
+    self.procesado?
   end
 
   def active_merchant_payment
@@ -53,7 +53,7 @@ class Order < ActiveRecord::Base
     ActiveMerchant::Billing::AuthorizeNetGateway.default_currency = 'USD'
     ActiveMerchant::Billing::AuthorizeNetGateway.wiredump_device = STDERR
     ActiveMerchant::Billing::AuthorizeNetGateway.wiredump_device.sync = true
-    self.status = 'failed' # order status by default
+    self.status = 'fallido' # order status by default
 
     # the card verification value is also known as CVV2, CVC2, or CID
     creditcard = ActiveMerchant::Billing::CreditCard.new(
@@ -97,29 +97,29 @@ class Order < ActiveRecord::Base
       response = gateway.purchase(self.total, creditcard, details)
 
       if response.success?
-        self.status = 'processed'
+        self.status = 'procesado'
       else
         self.error_message = response.message
       end
     else
-      self.error_message = 'Credit card not valid'
+      self.error_message = 'Tarjeta de crédito no válida'
     end
   end
 
-  def processed?
-    self.status == 'processed'
+  def procesado?
+    self.status == 'procesado'
   end
 
-  def failed?
-    self.status == 'failed'
+  def fallido?
+    self.status == 'fallido'
   end
 
-  def closed?
-    self.status == 'closed'
+  def cerrado?
+    self.status == 'cerrado'
   end
 
-  def close
-    self.status = 'closed'
+  def cerrado
+    self.status = 'cerrado'
     save!
   end
 end

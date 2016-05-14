@@ -2,7 +2,7 @@ class Admin::ArticleController < ApplicationController
   def new
     load_data
     @article = Article.new
-    @page_title = 'Create new article'
+    @page_title = 'Crear un nuevo artículo'
   end
 
   def create
@@ -12,7 +12,7 @@ class Admin::ArticleController < ApplicationController
       redirect_to :action => 'index'
     else
       load_data
-      @page_title = 'Crear nuevo artículo'
+      @page_title = 'Crear un nuevo artículo'
       render :action => 'new'
     end
   end

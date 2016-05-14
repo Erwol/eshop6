@@ -1,14 +1,14 @@
 class Admin::OrderController < Admin::AuthenticatedController
   def close
     order = Order.find(params[:id])
-    order.close
+    order.cerrado
     flash[:notice] = "El pedido ##{order.id} se ha cerrado."
     redirect_to :action => 'index'
   end
 
   def show
     @order = Order.find(params[:id])
-    @page_title = "Mostrando el pedido ##{@order.id}"
+    @page_title = "Mostrando el pedido ##{@order.id}."
   end
 
   def index

@@ -33,8 +33,8 @@ class OrderTest < ActiveSupport::TestCase
     assert_equal 1, order.order_items.size
     assert_equal 155.25, order.order_items[0].price
     assert_equal order.status, 'processed'
-    order.close
-    assert order.closed?
+    order.cerrado
+    assert order.cerrado?
   end
 
   test "validations" do

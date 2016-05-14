@@ -34,13 +34,13 @@
 <dl>
   <dt>Estado</dt>
   <dd><%= @order.status[0].capitalize + @order.status[1..@order.status.length-1] %></dd>
-  <% if @order.failed? %>
+  <% if @order.fallido? %>
     <dt>Error</dt>
     <dd><%= @order.error_message %></dd>
   <% end %>
 </dl>
 
-<% if !@order.closed? %> <p></p> <% end %>
+<% if !@order.cerrado? %> <p></p> <% end %>
 <%= button_to 'Cerrar pedido', {:action => 'close', :id => @order},
-    data: { confirm: "¿Estas seguro de que quieres cerrar el pedido #{@order.id}?" } if @order.processed? %>
+    data: { confirm: "¿Estas seguro de que quieres cerrar el pedido #{@order.id}?" } if @order.procesado? %>
 <%= render :partial => 'navigation' %>

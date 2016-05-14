@@ -5,7 +5,7 @@ class CheckoutController < ApplicationController
     @order = Order.new
     @page_title = 'Checkout'
     if @cart.articles.empty?
-      flash[:notice] = '¡ Su carrito de la compra está vacío! ' +
+      flash[:notice] = '¡Su carrito de la compra está vacío! ' +
           'Por favor, añada al menos un artículo al carrito para poder comprarlo.'
       redirect_to :controller => 'catalog'
     end
@@ -16,7 +16,7 @@ class CheckoutController < ApplicationController
     @order = Order.new(order_params)
     @order.ship_to_country_code = @order.ship_to_country_code.upcase
     @order.customer_ip = request.remote_ip
-    @order.status = 'open'
+    @order.status = 'abierto'
     @page_title = 'Checkout'
     populate_order
 
