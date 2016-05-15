@@ -26,7 +26,7 @@ class AuthenticationTest < ActionDispatch::IntegrationTest
     attr_writer :name
 
     def tries_to_go_to_admin
-      get '/admin/book/new'
+      get '/admin/article /new'
       assert_response :redirect
       assert_redirected_to '/user_sessions/new'
     end
@@ -34,7 +34,7 @@ class AuthenticationTest < ActionDispatch::IntegrationTest
     def logs_in_succesfully(login, password)
       post_login(login, password)
       assert_response :redirect
-      assert_redirected_to '/admin/book/new'
+      assert_redirected_to '/admin/article/new'
     end
 
     def fails_login(login, password)

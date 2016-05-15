@@ -11,7 +11,7 @@ class UserSessionsController < ApplicationController
     @user_session.remember_me = false # just in case
     if @user_session.save
       flash[:notice] = "Sesión iniciada correctamente."
-      redirect_back_or_default :controller => '/admin/author', :action => :index # default login route
+      redirect_back_or_default :controller => '/admin/designer', :action => :index # default login route
     else
       render :action => :new
     end
