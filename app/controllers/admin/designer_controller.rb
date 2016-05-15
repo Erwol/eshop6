@@ -1,4 +1,4 @@
-class Admin::DesignerController < ApplicationController
+class Admin::DesignerController < Admin::AuthenticatedController
   def new
     @designer = Designer.new
     @page_title = "Añadir un nuevo diseñador"

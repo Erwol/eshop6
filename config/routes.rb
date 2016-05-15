@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+
+  get 'about' => 'about#index'
+  get 'checkout' => 'checkout#index'
+  get 'admin/designer' => 'admin/designer#index'
+  get 'admin/publisher' => 'admin/publisher#index'
+  get 'admin/book' => 'admin/book#index'
+  get 'admin/order' => 'admin/order#index'
+
   post 'admin/order/close'
   post 'admin/order/destroy'
   get 'admin/order/show'
@@ -63,4 +71,16 @@ Rails.application.routes.draw do
   post 'cart/remove'
   get 'cart/clear'
   post 'cart/clear'
+
+  get 'user_sessions/new'
+  get 'user_sessions/create' # for showing failed login screen after restarting web server
+  post 'user_sessions/create'
+  get 'user_sessions/destroy'
+
+  get 'user/new'
+  post 'user/create'
+  get 'user/show'
+  get 'user/show/:id' => 'user#show'
+  get 'user/edit'
+  post 'user/update'
 end

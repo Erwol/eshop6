@@ -11,6 +11,22 @@
   <h1 id="logo">Merchuca&trade;</h1>
     <h2 id="slogan">Merchandaising de la Universidad de Cádiz</h2>
 
+  <% if current_user %>
+      <p id="loginlogout">
+        Logged in as <%= current_user.login %>
+        (<%= link_to "Editar perfil", :controller => '/user', :action => :show %>)
+        <br/>
+        (<%= link_to "Salir", :controller => '/user_sessions', :action => :destroy %>)
+      </p>
+  <% else %>
+      <p id="loginlogout">
+          (<%= link_to "Crear cuenta", :controller => '/user', :action => :new %>)
+        <br>
+          (<%= link_to "Iniciar sesión", :controller => '/user_sessions', :action => :new %>)
+      </p>
+  <% end %>
+</div>
+
 </div>
 
 <div id="menu">
