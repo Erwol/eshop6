@@ -3,5 +3,5 @@
   <%= link_to 'abierto', :action => 'index', :id => 'abierto' %>,
   <%= link_to 'procesado', :action => 'index', :id => 'procesado' %>,
   <%= link_to 'cerrado', :action => 'index', :id => 'cerrado' %>,
-  <%= link_to 'fallido', :action => 'index', :id => 'fallido' %></strong>
+  <%= link_to 'fallido', :action => 'index', :id => 'failed' %></strong>
 </p>
