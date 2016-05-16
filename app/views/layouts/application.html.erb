@@ -20,9 +20,11 @@
       </p>
   <% else %>
       <p id="loginlogout">
-          (<%= link_to "Crear cuenta", :controller => '/user', :action => :new %>)
-        <br>
-          (<%= link_to "Iniciar sesión", :controller => '/user_sessions', :action => :new %>)
+        <% if User.count == 0 %>
+            (<%= link_to "Registro", :controller => '/user', :action => :new %>)
+        <% else %>
+            (<%= link_to "Iniciar sesión", :controller => '/user_sessions', :action => :new %>)
+        <% end %>
       </p>
   <% end %>
 </div>
