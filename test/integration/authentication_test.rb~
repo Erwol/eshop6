@@ -26,7 +26,7 @@ class AuthenticationTest < ActionDispatch::IntegrationTest
     attr_writer :name
 
     def tries_to_go_to_admin
-      get '/admin/article/new'
+      get '/admin/article /new'
       assert_response :redirect
       assert_redirected_to '/user_sessions/new'
     end
