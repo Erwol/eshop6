@@ -20,7 +20,7 @@ class UserSessionsController < ApplicationController
   def destroy
     if current_user_session # only for an authenticated user
       current_user_session.destroy
-      flash[:notice] = "Sesión finalizada satisfactoriamente."
+      flash[:notice] = "Sesión finalizada correctamente."
     end
     redirect_to :controller => :catalog, :action => :index # logout route
   end

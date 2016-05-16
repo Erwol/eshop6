@@ -38,7 +38,7 @@ class UserTest < ActionDispatch::IntegrationTest
       assert_equal flash[:notice], "La cuenta #{user_name} fue creada correctamente y la sesión ha sido iniciada."
       assert_tag :tag => 'div', :attributes => { :id => 'notice' },
                  :content => "La cuenta #{user_name} fue creada correctamente y la sesión ha sido iniciada."
-      assert_tag :tag => 'dt', :content => 'Nombre de usuario'
+      assert_tag :tag => 'dt', :content => 'Usuario'
       assert_tag :tag => 'dd', :content => user_name
       return User.find_by_login(parameters[:user][:login])
     end
