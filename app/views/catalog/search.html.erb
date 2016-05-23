@@ -1,2 +1,13 @@
-<h1>Catalog#search</h1>
-<p>Find me in app/views/catalog/search.html.erb</p>
+<p>
+  Introduzca el nombre (o parte del mismo) del articulo que quiere buscar.
+</p>
+
+<%= render :partial => 'search_box' %>
+
+<% if @articles %>
+    <p>
+      Tu búsqueda '<%= params[:q] %>' ha dado como resultado:
+      <%= pluralize @articles.size, 'resultado', 'resultados' %>
+    </p>
+    <%= render(:partial => 'articles') %>
+<% end %>

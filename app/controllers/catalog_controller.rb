@@ -16,4 +16,25 @@ class CatalogController < ApplicationController
     @articles = Article.latest 5 # invoques "latest" method to get the five latest articles
     @page_title = 'Últimos artículos'
   end
+
+
+
+  def rss
+    latest
+    render :layout => false
+    response.headers["Content−Type"] = "application/xml; version = 1.0; charset=utf−8"
+  end
+
+  def search
+    @page_title = "Buscar"
+    if params[:commit] == "Buscar" || params[:q]
+      @articles = Article.where 'name LIKE ?', "%#{params[:q]}%"
+      unless @articles.size > 0
+        flash.now[:notice] = "No se ha encontrado el artículo."
+      end
+    end
+  end
+
+
+
 end
