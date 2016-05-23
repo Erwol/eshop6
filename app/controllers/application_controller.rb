@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
     logger.debug "ApplicationController::require_no_user"
     if current_user
       store_location
-      # flash[:notice] = "You must be logged out to access this page."
+      flash[:notice] = "No debe haber iniciado sesión para acceder a esta página."
       redirect_to :controller => 'about', :action => :index
       return false
     end
