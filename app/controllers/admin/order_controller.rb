@@ -22,4 +22,12 @@ class Admin::OrderController < Admin::AuthenticatedController
     @orders = Order.where(conditions).paginate(:page => params[:page], :per_page => 10)
     @page_title = "Listado de pedidos: #{@status}"
   end
+
+
+  def destroy
+    @order = Order.find(params[:id])
+    @order.destroy
+    flash[:notice] = "El pedido #{@order.id} fue borrado correctamente."
+    redirect_to :action => 'index'
+  end
 end
