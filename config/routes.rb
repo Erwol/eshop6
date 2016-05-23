@@ -1,11 +1,20 @@
 Rails.application.routes.draw do
 
 
+
+  resources :password_resets
+
+"""""
+  get 'password_resets/create'
+
+  get 'password_resets/edit'
+
+  get 'password_resets/update'
+
+  get 'password_resets/new'
+"""""
   get 'about' => 'about#index'
   get 'checkout' => 'checkout#index'
-  get 'admin/designer' => 'admin/designer#index'
-  get 'admin/publisher' => 'admin/publisher#index'
-  get 'admin/book' => 'admin/book#index'
   get 'admin/order' => 'admin/order#index'
 
   post 'admin/order/close'
