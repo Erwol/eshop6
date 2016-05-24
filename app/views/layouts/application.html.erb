@@ -13,7 +13,7 @@
 
   <% if current_user %>
       <p id="loginlogout">
-        Logged in as <%= current_user.login %>
+        Sesión iniciada como <%= current_user.login %>
         (<%= link_to "Editar", :controller => '/user', :action => :show %>)
         <br/>
         (<%= link_to "Finalizar sesión", :controller => '/user_sessions', :action => :destroy %>)
