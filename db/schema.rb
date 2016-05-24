@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160523170650) do
+ActiveRecord::Schema.define(version: 20160523183653) do
 
   create_table "articles", force: true do |t|
     t.string   "name",                     null: false
@@ -57,6 +57,17 @@ ActiveRecord::Schema.define(version: 20160523170650) do
     t.string   "name"
     t.integer  "telephone"
     t.string   "enterprise"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "forum_posts", force: true do |t|
+    t.string   "name",       limit: 50,             null: false
+    t.string   "subject",                           null: false
+    t.text     "body"
+    t.integer  "root_id",               default: 0, null: false
+    t.integer  "parent_id",             default: 0, null: false
+    t.integer  "depth",                 default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

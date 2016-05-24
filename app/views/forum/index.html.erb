@@ -1,0 +1,12 @@
+<% if @posts.size > 0 %>
+    <%= render :partial => 'posts' %>
+    <div><%= link_to 'Nuevo post', :action => 'post' %></div>
+
+    <%= will_paginate @posts, :page_links => false, :link_separator => ' | ',
+                      :previous_label => 'Anterior', :next_label => 'Siguiente' %>
+    <% else %>
+    <p> No hay posts aún. <%= link_to '¿Te animas?', :action => 'post' %></p>
+<% end %>
+
+<%= will_paginate @posts, :page_links => false, :link_separator => ' | ', :previous_label => '
+       Página anterior ', :next_label => 'Siguiente página' %>

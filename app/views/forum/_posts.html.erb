@@ -1,0 +1,10 @@
+<dl id = 'posts'>
+  <% for post in @posts %>
+      <dt>
+        <%= link_to post.name, :action => 'show', :id => post %>
+      </dt>
+      <dt>
+        Tema: <%= post.subject %>
+      </dt>
+  <% end %>
+</dl>

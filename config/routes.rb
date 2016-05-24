@@ -2,6 +2,18 @@ Rails.application.routes.draw do
 
 
 
+  get 'forum/post'
+
+  get 'forum/create'
+  post 'forum/create'
+  get 'forum/reply'
+
+  get 'forum/destroy'
+
+  get 'forum/show'
+
+  get 'forum/index'
+
   resources :password_resets
 
 """""

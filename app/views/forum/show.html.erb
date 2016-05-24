@@ -1,0 +1,24 @@
+<hr>
+<%= @post.body %></dd>
+
+
+
+<dl id = 'posts'>
+  <% if @posts.size > 1 %>
+      <h2>Respuestas</h2>
+    <% for post in @posts %>
+      <% if post.id != @post.id %>
+        <hr>
+        <%= link_to post.name, :action => 'show', :id => post %>
+      <% end %>
+    <% end %>
+
+  <% else %>
+      <h2>Aún no hay respuestas</h2>
+  <% end %>
+</dl>
+
+<p>Clasificado en: <b><%= @post.subject %></b>.</p>
+<%= link_to 'Responder', :action => 'reply', :id => @post %>
+<%= link_to 'Eliminar', :action => 'destroy', :id => @post %> |
+<%= link_to 'Volver', :action => 'index' %>
