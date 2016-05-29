@@ -51,6 +51,8 @@ gem 'activemerchant', '1.43.1'
 
 gem 'eu_central_bank', '0.3.8'
 
+gem 'acts-as-taggable-on'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

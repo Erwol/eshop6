@@ -48,9 +48,9 @@ class Admin::ArticleController < Admin::AuthenticatedController
   end
 
   def index
-    sort_by = params[:sort_by]
-    @articles = Article.order(sort_by).paginate(:page => params[:page], :per_page => 5)
-    @page_title = 'Listado de artículos'
+      sort_by = params[:sort_by]
+      @articles = Article.order(sort_by).paginate(:page => params[:page], :per_page => 5)
+      @page_title = 'Listado de artículos'
   end
 
   private
@@ -62,6 +62,6 @@ class Admin::ArticleController < Admin::AuthenticatedController
 
   def article_params
     params.require(:article).permit(:name, :provider_id, :provided_at, { :designer_ids => [] },
-                                    :description, :price, :cover_image)
+                                    :description, :price, :cover_image, :tag_list)
   end
 end

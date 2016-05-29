@@ -11,6 +11,10 @@
   <dd><%= @article.provider.name %></dd>
   <dt>Descripción del artículo</dt>
   <%= RedCloth.new(@article.description).to_html.html_safe if @article.description %>
+  <dt>Tags</dt>
+  <dd><%= raw @article.tags.map {
+        |t| link_to t.name, :action => 'tags', :id => t.id
+    }.join(', ') %></dd>
 </dl>
 
 <p><%= link_to 'Catálogo', :action => 'index' %> </p>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'catalog/tags'
 
 
   get 'forum/post'

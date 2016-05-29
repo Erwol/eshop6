@@ -11,7 +11,7 @@
       <dd><%= sprintf("Precio: %.2f €", article.price) %> </dd>
       <dd><small>Proveedor: <%= article.provider.name %></small></dd>
       <dd>Tags: <%= raw article.tags.map {
-         |t| link_to t.name, :action => 'tags', :id => t.id
+         |t| link_to t.name, :action => 'tags', "id" => t.id
       }.join(', ') %></dd>
   <% end %>
 </dl>

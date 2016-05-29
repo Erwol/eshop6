@@ -17,6 +17,11 @@ class CatalogController < ApplicationController
     @page_title = 'Últimos artículos'
   end
 
+  def tags
+    @articles = Article.joins(:taggings).where 'tag_id LIKE ?', "%#{params[:id]}%"
+    @page_title = 'Catálogo de artículos'
+  end
+
 
 
   def rss
@@ -34,7 +39,4 @@ class CatalogController < ApplicationController
       end
     end
   end
-
-
-
 end
